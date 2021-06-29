@@ -10,7 +10,11 @@ function computerPlay() {
     return computerChoice;
      // return value
 }
-
+let playerWin;
+let compWin;
+let draw;
+let playerWins = 0;
+let compWins = 0;
 
 /* Create function playRound(playerSelection, computerSelection) */
 function playRound(playerSelection, computerSelection) {
@@ -18,12 +22,14 @@ function playRound(playerSelection, computerSelection) {
     // check if player & comp are same 
     if (playerSelection === computerSelection) {
         alert(`It's a draw! You both chose ${playerSelection}!`);
+        let draw = true;
         /* causes draw*/
     }
     // check if player beats comp
     else if (computerSelection === 'rock' 
     && playerSelection === 'paper') {
         alert(` You win! \n Computer chose ${computerSelection} \n Paper beats rock!`);
+        let playerWin = true;
         /* causes player win */
     }
     // check if player beats comp
@@ -31,30 +37,35 @@ function playRound(playerSelection, computerSelection) {
     && playerSelection === 'scissors') {
         alert(` You win! \n Computer chose ${computerSelection} \n Scissors beat paper!`);
         /* causes player win */
+        let playerWin = true;
     }
     // check if player beats comp
     else if (computerSelection === 'scissors'
     && playerSelection === 'rock') {
         alert(` You win! \n Computer chose ${computerSelection} \n Rock beats scissors!`);
         /* causes player win */
+        let playerWin = true;
     }
     // check if comp beats player
     else if (playerSelection === 'rock' 
     && computerSelection === 'paper') {
         alert(` Computer wins! \n Computer chose ${computerSelection} \n Paper beats rock!`);
         /* causes comp win*/
+        let compWin = true;
     }
     // check if comp beats player
     else if (playerSelection === 'paper'
     && computerSelection === 'scissors') {
         alert(` Computer wins! \n Computer chose ${computerSelection} \n Scissors beat paper!`);
         /* causes comp win*/
+        let compWin = true;
     }
     // check if comp beats player
     else if (playerSelection === 'scissors'
     && computerSelection === 'rock') {
         alert(` Computer wins! \n Computer chose ${computerSelection} \n Rock beats scissors!`);
         /* causes comp win*/
+        let compWin = true;
     }
     else {
         alert("Something went wrong :( ");
@@ -65,6 +76,16 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
+    for (let i = 0; i < 5; i++) {
+        playRound(playerSelection, computerSelection);
+            if (playerWin = true) {
+                playerWins++
+            }
+            else if (compWin = true) {
+                compWins++
+            }
+    } 
+    
     //playRound five iterations
     //keep score
     //report winner or loser
