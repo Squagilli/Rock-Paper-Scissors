@@ -87,7 +87,7 @@ function game() {
             }
             else if (compWin = true) {
                 compWins++
-            }*/
+            } */
         }
     if (playerWins > compWins) {
         alert(`Player won ${playerWins} out of five rounds!`);
