@@ -17,6 +17,7 @@ let draws = 0;
 let playerWins = 0;
 let compWins = 0;
 
+
 /* Create function playRound(playerSelection, computerSelection) */
 function playRound(playerSelection, computerSelection, compWins, playerWins) {
 
@@ -71,12 +72,14 @@ function playRound(playerSelection, computerSelection, compWins, playerWins) {
     else {
         alert("Something went wrong :( ");
     }
+
       
     return (computerSelection, playerSelection, compWins, playerWins, draws);
   
 }
 
 function game() {
+    let i = 0;
     for (let i = 0; i < 5; i++) {
         playRound(playerSelection, computerSelection, compWins, playerWins, draws);
             /*if (playerWin = true) {
