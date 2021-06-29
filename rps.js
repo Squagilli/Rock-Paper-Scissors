@@ -84,12 +84,18 @@ function game() {
             else if (compWin = true) {
                 compWins++
             }
-    } 
-    
+        if (playerWins > compWins) {
+            alert(`Player won ${playerWins} out of five rounds!`);
+        }
+        else if (compWins > playerWins) {
+            alert(`Computer ${compWins} out of five rounds!`);
+        }
+    }
+}
     //playRound five iterations
     //keep score
     //report winner or loser
-}
+
 /* Create let variable playerSelection */
 // prompt user for selection CASE INSENSITIVE
 const playerSelection = prompt('Rock, Paper or Scissors?');
