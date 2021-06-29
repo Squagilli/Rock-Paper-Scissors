@@ -17,43 +17,43 @@ function playRound(playerSelection, computerSelection) {
 
     // check if player & comp are same 
     if (playerSelection === computerSelection) {
-        alert("It's a draw!");
+        alert(`It's a draw! You both chose ${playerSelection}!`);
         /* causes draw*/
     }
     // check if player beats comp
     else if (computerSelection === 'rock' 
     && playerSelection === 'paper') {
-        alert("Player wins!");
+        alert(` You win! \n Computer chose ${computerSelection} \n Paper beats rock!`);
         /* causes player win */
     }
     // check if player beats comp
     else if (computerSelection === 'paper'
     && playerSelection === 'scissors') {
-        alert("Player wins!");
+        alert(` You win! \n Computer chose ${computerSelection} \n Scissors beat paper!`);
         /* causes player win */
     }
     // check if player beats comp
     else if (computerSelection === 'scissors'
     && playerSelection === 'rock') {
-        alert("Player wins!")
+        alert(` You win! \n Computer chose ${computerSelection} \n Rock beats scissors!`);
         /* causes player win */
     }
     // check if comp beats player
     else if (playerSelection === 'rock' 
     && computerSelection === 'paper') {
-        alert("Computer wins!");
+        alert(` Computer wins! \n Computer chose ${computerSelection} \n Paper beats rock!`);
         /* causes comp win*/
     }
     // check if comp beats player
     else if (playerSelection === 'paper'
     && computerSelection === 'scissors') {
-        alert("Computer wins!");
+        alert(` Computer wins! \n Computer chose ${computerSelection} \n Scissors beat paper!`);
         /* causes comp win*/
     }
     // check if comp beats player
     else if (playerSelection === 'scissors'
     && computerSelection === 'rock') {
-        alert("Computer wins!")
+        alert(` Computer wins! \n Computer chose ${computerSelection} \n Rock beats scissors!`);
         /* causes comp win*/
     }
     else {
