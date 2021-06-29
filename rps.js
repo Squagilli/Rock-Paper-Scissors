@@ -1,6 +1,8 @@
 
 
-
+let draws = 0;
+let playerWins = 0;
+let compWins = 0;
 
 /* Create function computerPlay */
 function computerPlay() {
@@ -12,10 +14,6 @@ function computerPlay() {
 }
 /*let playerWin;
 let compWin;*/
-
-let draws = 0;
-let playerWins = 0;
-let compWins = 0;
 
 
 /* Create function playRound(playerSelection, computerSelection) */
@@ -89,12 +87,13 @@ function game() {
                 compWins++
             } */
         }
-    if (playerWins > compWins) {
-        alert(`Player won ${playerWins} out of five rounds!`);
-    }
-    else if (compWins > playerWins) {
-        alert(`Computer ${compWins} out of five rounds!`);
-    }
+   
+}
+if (playerWins > compWins) {
+    alert(`Player won ${playerWins} out of five rounds!`);
+}
+else if (compWins > playerWins) {
+    alert(`Computer ${compWins} out of five rounds!`);
 }
     //playRound five iterations
     //keep score
