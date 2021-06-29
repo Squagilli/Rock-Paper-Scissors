@@ -1,6 +1,5 @@
 
 
-
 let draws = 0;
 let wins = 0;
 let losses = 0;
@@ -16,7 +15,7 @@ function computerPlay() {
 }
 
 function playerPlay() {
-    let playerChoice = prompt("Rock, Paper, Scissors?");
+    let playerChoice = prompt("Rock,  Paper,  Scissors?");
     return playerChoice;
 }
 
@@ -78,6 +77,9 @@ function playRound(playerSelection, computerSelection) {
         \n${playerSelection} beats ${computerSelection}
         \nYou won!`);
         wins++
+    }
+    else {
+        console.log('what?');
     }
     return(playerSelection, computerSelection)
 }
