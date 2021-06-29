@@ -60,7 +60,14 @@ function playRound(playerSelection, computerSelection) {
         alert("Something went wrong :( ");
     }
       
+    return (computerSelection, playerSelection);
   
+}
+
+function game() {
+    //playRound five iterations
+    //keep score
+    //report winner or loser
 }
 /* Create let variable playerSelection */
 // prompt user for selection CASE INSENSITIVE
