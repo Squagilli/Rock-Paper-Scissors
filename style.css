@@ -1,0 +1,161 @@
+.game-title-container {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    min-width: 100vw;
+    height: 10vh;
+    padding: 1rem;
+    padding-top: 5rem;
+    flex-grow: 3;
+    flex-shrink: 1;
+
+    font-size: 100px;
+
+    border: 1px solid black;
+}
+
+#scoreboard-container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    flex-grow: 3;
+    flex-shrink: 2;
+    padding: 1rem;
+    width: 100vw;
+    min-height: 15vh;
+    max-height: 15vh;
+
+    text-align: center;
+
+    border: 1px solid black;
+
+}
+#action-container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    flex-grow: 3;
+    flex-shrink: 2;
+    padding: 1rem;
+    width: 100vw;
+    min-height: 15vh;
+    max-height: 15vh;
+
+    text-align: center;
+
+    border: 1px solid black;
+}
+.score-title {
+    padding: 1rem;
+    flex-grow: 3;
+    flex-shrink: 2;
+    width: 2rem;
+    font-size: 50px;
+
+    border: 1px solid black;
+}
+.score-choice {
+    padding-top: 5rem;
+    height: 10rem;
+    
+    border: 1px solid black;
+}
+.event-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    flex-grow: 3;
+    flex-shrink: 2;
+    padding: 1rem;
+    padding-top: 10rem;
+    width: 100vw;
+    margin-top: 1rem;
+    height: 10vh;
+
+    border: 1px solid black;
+    
+}
+.score-item {
+    align-self: flex-start;
+    padding: 3rem;
+    padding-top: 5rem;
+    height: 15vh;
+    font-size: 50px;
+
+    border: 1px solid black;
+}
+.event-report {
+    font-size: 35px;
+
+    border: 1px solid black;
+}
+.score {
+    align-self: flex-start;
+    padding: 2rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-top: 5rem;
+    font-size: 60px;
+
+    border: 1px solid black;
+}
+.score-d {
+    padding-top: 5rem;
+
+    border: 1px solid black;
+}
+#button-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    flex-grow: 3;
+    flex-shrink: 2;
+    padding: 1rem;
+    width: 100vw;
+    margin-top: 1rem;
+    height: 10vh;
+
+    border: 1px solid black;
+}
+.button {
+    align-self: center;
+    font-size: 80px;
+    padding: 1rem;
+    margin: 1rem;
+
+    border: 1px solid black;
+}
+
+@media only screen and (min-width: 1120px)  {
+    #scoreboard-container {
+        height: 1vh;
+    }
+}
+@media only screen and (min-width: 600px)  {
+    #scoreboard-container {
+        min-height: 20vh;
+        max-height: 25vh;
+    }
+    .score-item {
+        align-self: flex-start;
+        padding: 5rem;
+    
+        font-size: 50px;
+    }
+    #button-container {
+        margin-top: 0;
+    }
+    .event-container {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        flex-grow: 3;
+        flex-shrink: 2;
+        padding: 1rem;
+        width: 100vw;
+        margin-top: 1rem;
+        height: 10vh;
+        
+    }
+}

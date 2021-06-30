@@ -106,7 +106,7 @@ function game() {
     }
 }
 
-game();
+/*game();*/
 
 
 
