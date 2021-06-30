@@ -1,28 +1,37 @@
 
+const roundResult = document.querySelector('.event-report');
 
+let playerChoice = '';
 function playerPlay () {
-    document.getElementById('rock-button').addEventListener("click", chooseRock);
+    document.getElementById('rock-button').addEventListener("click", chooseRock,);
 
-    document.getElementById('paper-button').addEventListener("click", choosePaper);
+    document.getElementById('paper-button').addEventListener("click", choosePaper,);
 
     document.getElementById('scissors-button').addEventListener("click", chooseScissors);
     
     function chooseRock() {
         document.getElementById('player-choice').innerHTML = "Rock";
         computerPlay()
+        playerChoice = "rock"
+        //computerPlay()
     }
     function choosePaper() {
         document.getElementById('player-choice').innerHTML = "Paper";
         computerPlay()
+        playerChoice = "paper"
+        //computerPlay()
     }
     function chooseScissors() {
         document.getElementById('player-choice').innerHTML = "Scissors";
         computerPlay()
+        playerChoice = "scissors"
+        //computerPlay()
     }
     
+    return playerChoice;
+    
 }
-const PlayerSelection = '';
-const computerSelection = computerPlay();
+
 
 function computerPlay() {
     let choices = ['rock', 'paper', 'scissors']; // list computer choices
@@ -40,18 +49,17 @@ function computerPlay() {
     
 }
 
-/*function compUpdate() {
-    if (computerSelection === 'rock') {
-        document.getElementById('comp-choice').innerHTML = "Rock";
+function playRound(playerSelection, computerSelection) {
+    playerSelection = playerPlay();
+    //computerSelection = computerPlay();
+    if (playerSelection === computerSelection) {
+        roundResult.innerText = "TIE";
     }
-    else if (computerSelection === 'paper') {
-        document.getElementById('comp-choice').innerHTML = "Paper";
-    }
-    else if (computerSelection === 'scissors') {
-        document.getElementById('comp-choice').innerHTML = "Scissors";
-    }
-}*/
+}
+const playerSelection = '';
+const computerSelection = '';
 
+//playerPlay()
 
-playerPlay()
+playRound()
 
