@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <script src="rps.js"> 
-        </script>
         <div class="game-title-container">
             Rock Paper Scissors!
         </div>
         <div id="action-container">
             <div class="score-title">
-                Player Chose: <div class="score-choice">
+                Player Chose: <div id="player-choice" class="score-choice">
                     Choice
                 </div>
             </div>
             <div class="score-title">
-                Computer Chose: <div class="score-choice">
+                Computer Chose: <div id="comp-choice" class="score-choice">
                     Choice
                 </div>
             </div>
@@ -27,28 +26,27 @@
             </div>
         </div>
         <div id="button-container">
-            <button class="rock-button button">
+            <button id="rock-button" class="button">
                 Rock
             </button>
-            <button class="paper-button button">
+            <button id="paper-button" class="button">
                 Paper
             </button>
-            <button class="scissors-button button">
+            <button id="scissors-button" class="button">
                 Scissors
             </button>
         </div>
-        
         <div id="scoreboard-container">
             <div class="player-score score-item">
-                player score: 
+                player score: <p></p>
             </div>
             <div class="computer-score score-item">
-                computer score: 
+                computer score: <p></p>
             </div>
             <div class="draws score-item">
-                draws: 
+                draws: <p></p>
             </div>
         </div>
-        
+        <script src="rps.js"></script>
     </body>
 </html>
