@@ -173,6 +173,21 @@
     flex: 1 1 auto;
     align-self: center;
 }
+/* appended images */
+.rock {
+    max-width: 75%;
+    height: auto;
+}
+.paper {
+    max-width: 50%;
+    height: auto;
+    
+}
+.scissors {
+    max-width: 80%;
+    height: auto;
+    
+}
 
 @media screen and (max-width: 1500px){
     /* containers */
@@ -348,5 +363,20 @@
         flex: 1 2 auto;
         align-self: center;
     }
-
+/* appended images */
+    .rock {
+        max-width: 85%;
+        height: auto;
+        padding-top: 1rem;
+    }
+    .paper {
+        max-width: 55%;
+        height: auto;
+        padding-top: 1rem;
+    }
+    .scissors {
+        max-width: 92%;
+        height: auto;
+        padding-top: 1rem;
+    }
 }
