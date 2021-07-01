@@ -11,8 +11,7 @@ const roundResult = document.getElementById('roundResult');
 const playerScore = document.getElementById('scoreplayer');
 const compScore = document.getElementById('scoreComp');
 
-const playerSelection = '';
-const computerSelection = '';
+
 
 let playerChoice = '';
 
@@ -76,11 +75,11 @@ function playerPlay() {
 
     return playerChoice;
 }
-
+let computerChoice = '';
 // computer select function
 function computerPlay() {
     const choices = ['rock', 'paper', 'scissors'];
-    let computerChoice = choices[Math.floor(Math.random() * choices.length)];
+    computerChoice = choices[Math.floor(Math.random() * choices.length)];
     if (computerChoice === 'rock') {
         if (document.getElementById('imageC')) {
             (document.getElementById('imageC')).remove();
@@ -114,19 +113,31 @@ function computerPlay() {
         const src = document.getElementById('compWep');
         src.appendChild(img);
     }
+    return computerChoice;
 }
 
 
-playerPlay();
+//playerPlay();
 
 // create new game function
-    // on click new game 
+function newGame() {
+    playerPlay();
+    if (playerChoice === 'rock' && computerChoice === 'scissors'){
+        roundResult.innerHTML = 'Rock beats Scissors'
+    }
+}
 
-    // create play game function
+const playerSelection = '';
+const computerSelection = '';
+
+newGame()
+
+    // on click new game 
     // player play
-    // computer play 
+    // computer play
 
     // compare choices
+
     // store points
 
     // end game after 5 rounds

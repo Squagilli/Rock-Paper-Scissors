@@ -1,6 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Padauk&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kulim+Park:wght@300&family=Padauk&display=swap');
+
 /* containers */
+
 .scoreboard {
-    border: 3px solid black;
+    
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-around;
@@ -9,7 +13,8 @@
     max-width: 100vw;
     /*margin-left: 15rem;*/
 
-    font-size: 20px;
+    font-size: 19px;
+    font-family: 'Padauk', sans-serif;
 }
 
 .gameScreenLabel {
@@ -22,6 +27,7 @@
     margin-left: 15rem;
 
     font-size: 25px;
+    font-family: 'Padauk', sans-serif;
 }
 .gameScreen {
 
@@ -32,6 +38,8 @@
     height: 25vw;
     max-width: 75vw;
     margin-left: 15rem;
+
+    font-family: 'Padauk', sans-serif;
 }
 .choiceLabel {
     display: flex;
@@ -42,6 +50,8 @@
     max-width: 75vw;
     text-align: center;
     margin-left: 15rem;
+
+    font-family: 'Padauk', sans-serif;
 }
 .choices {
     padding: 2rem;
@@ -62,6 +72,10 @@
     flex: 1 2 -1rem;
     align-self: center;
     text-align: left;
+
+    font-family: 'Padauk', sans-serif;
+
+    
 }
 .playerScore {
    
@@ -199,7 +213,7 @@
         height: 10vh;
         max-width: 100vw;
 
-        font-size: 20px;
+        font-size: 15px;
     }
     .gameScreenLabel {
         margin-left: 0;
