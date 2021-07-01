@@ -6,8 +6,8 @@
     justify-content: space-around;
 
     height: 4vh;
-    max-width: 75vw;
-    margin-left: 15rem;
+    max-width: 100vw;
+    /*margin-left: 15rem;*/
 
     font-size: 20px;
 }
@@ -128,6 +128,8 @@
     flex: 1 1 auto;
     align-self: center;
     text-align: center;
+
+    font-size: 30px;
 }
 .result {
     
@@ -172,7 +174,7 @@
     align-self: center;
 }
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 1500px){
     /* containers */
     .scoreboard {
         margin-left: 0;
