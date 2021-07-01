@@ -1,5 +1,5 @@
 
-const roundResult = document.querySelector('.event-report');
+/*const roundResult = document.querySelector('.event-report');
 
 let playerChoice = '';
 function playerPlay () {
