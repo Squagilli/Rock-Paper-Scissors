@@ -1,0 +1,344 @@
+/* containers */
+.scoreboard {
+    background-color: yellow;
+    border: 1px solid black;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+
+    height: 4vh;
+    max-width: 100vw;
+
+    font-size: 20px;
+}
+
+.gameScreenLabel {
+    background-color: red;
+    border: 1px solid black;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+
+    height: 3vw;
+    max-width: 100vw;
+
+    font-size: 25px;
+}
+.gameScreen {
+    background-color: tan;
+    border: 1px solid black;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+
+    height: 25vw;
+    max-width: 100vw;
+}
+.choiceLabel {
+    background-color: red;
+    border: 1px solid black;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+
+    height: 3vh;
+    max-width: 100vw;
+}
+.choices {
+    background-color: yellow;
+    border: 1px solid black;
+    padding: 2rem;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+
+    height: 10vw;
+    max-width: 100vw;
+}
+
+/* scoreboard items */
+.newGame {
+    border: 1px solid black;
+
+    flex: 1 2 -1rem;
+    align-self: center;
+    text-align: left;
+}
+.playerScore {
+    border: 1px solid black;
+
+    flex: 1 1 auto;
+    align-self: center;
+
+    max-width: 10vw;
+}
+.compScore {
+    border: 1px solid black;
+    max-width: 10vw;
+
+    flex: 1 1 auto;
+    align-self: center;
+}
+.space {
+    border: 1px solid black;
+    max-width: 10vw;
+
+    flex: 1 3 auto;
+    align-self: center;
+}
+
+/* screen label items */
+.playerWeaponLabel {
+    border: 1px solid black;
+
+    align-self: center;
+}
+.compWeaponLabel {
+    border: 1px solid black;
+
+    align-self: center
+}
+
+/* game screen items */
+.playerWeapon {
+    border: 1px solid black;
+    padding: 5rem;
+    max-width: 15vw;
+    height: auto;
+
+    flex: 2 1 auto;
+    align-self: center;
+}
+.compWeapon {
+    border: 1px solid black;
+    padding: 5rem;
+    max-width: 15vw;
+    height: auto;
+
+    flex: 2 1 auto;
+    align-self: center;
+}
+.vs {
+    border: 1px solid black;
+    max-width: 15vw;
+    padding: 1rem;
+
+    flex: 1 1 auto;
+    align-self: center;
+    text-align: center;
+}
+.result {
+    border: 1px solid black;
+    max-width: 15vw;
+    padding: 1rem;
+    padding-bottom: 2rem;
+
+    flex: 0 1 auto;
+    align-self: center;
+    text-align: center
+}
+
+/* choice items */
+.rockChoose {
+    border: 1px solid black;
+    padding: 1rem;
+    margin: 5rem;
+    height: 13vh;
+
+    flex: 1 1 auto;
+    align-self: center;
+}
+.paperChoose {
+    border: 1px solid black;
+    padding: 1rem;
+    margin: 5rem;
+    height: 13vh;
+
+    flex: 1 1 auto;
+    align-self: center;
+}
+.scissorsChoose {
+    border: 1px solid black;
+    padding: 1rem;
+    margin: 5rem;
+    height: 13vh;
+
+    flex: 1 1 auto;
+    align-self: center;
+}
+
+@media screen and (max-width: 800px){
+    /* containers */
+    .scoreboard {
+    background-color: red;
+    border: 1px solid black;
+
+    display: flex;
+    flex-flow: column wrap !important;
+        
+    height: 10vh;
+    max-width: 100vw;
+
+    font-size: 20px;
+    }
+    .gameScreenLabel {
+        background-color: red;
+        border: 1px solid black;
+    
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-around;
+    
+        height: 10vw;
+        max-width: 100vw;
+    
+        font-size: 15px;
+    }
+    .gameScreen {
+        background-color: tan;
+        border: 1px solid black;
+    
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-evenly;
+    
+        height: 75vw;
+        max-width: 100vw;
+    }
+    .choiceLabel {
+        background-color: red;
+        border: 1px solid black;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+    
+        height: 3vh;
+        max-width: 100vw;
+    }
+    .choices {
+        background-color: yellow;
+        border: 1px solid black;
+        padding: 2rem;
+    
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+    
+        height: 15vw;
+        max-width: 100vw;
+    }
+    /* scoreboard items */
+    .newGame {
+        border: 1px solid black;
+
+        flex: 1 2 -1rem;
+        align-self: center;
+        text-align: left;
+    }
+    .playerScore {
+        border: 1px solid black;
+
+        flex: 1 1 auto;
+        align-self: center;
+
+        max-width: 100vw;
+    }
+    .compScore {
+        border: 1px solid black;
+        max-width: 100vw;
+
+        flex: 1 1 auto;
+        align-self: center;
+    }
+    .space {
+        max-width: 100vw;
+        max-height: 1vh;
+        align-self: center;
+    }
+    /* screen label items */
+    .playerWeaponLabel {
+        border: 1px solid black;
+
+        align-self: center;
+    }
+    .compWeaponLabel {
+        border: 1px solid black;
+
+        align-self: center
+    }
+    /* game screen items */
+    .playerWeapon {
+        border: 1px solid black;
+        padding: 1rem;
+        max-width: 20vw;
+        height: 10vh;
+
+        flex: 1 1 auto;
+        align-self: center;
+    }
+    .compWeapon {
+        border: 1px solid black;
+        padding: 1rem;
+        max-width: 20vw;
+        height: 10vh;
+
+        flex: 1 1 auto;
+        align-self: center;
+    }
+    .vs {
+        border: 1px solid black;
+        max-width: 15vw;
+        padding: 1rem;
+
+        flex: 2 1 auto;
+        align-self: center;
+        text-align: center;
+    }
+    .result {
+        border: 1px solid black;
+        width: 100%;
+        padding: 1rem;
+        padding-right: 1rem;
+        padding-bottom: 1rem;
+
+        flex: 1 1 auto;
+        align-self: center;
+        text-align: center
+    }
+    /* choice items */
+    .rockChoose {
+        border: 1px solid black;
+        padding: 0rem;
+        margin: 1em;
+
+        width: 30vw;
+
+        flex: 1 2 auto;
+        align-self: center;
+    }
+    .paperChoose {
+        border: 1px solid black;
+        padding: 0;
+        margin: 1em;
+
+        width: 30vw;
+
+        flex: 1 2 auto;
+        align-self: center;
+    }
+    .scissorsChoose {
+        border: 1px solid black;
+        padding: 0;
+        margin: 1em;
+        
+        width: 30vw;
+
+        flex: 1 2 auto;
+        align-self: center;
+    }
+
+}
