@@ -32,9 +32,11 @@ function playerPlay() {
         img.src = 'images/rock1.png';
         const src = document.getElementById('playerWep');
         src.appendChild(img);
+        chooseRock()
     })
     paperSelect.addEventListener('click', function(){
         computerPlay();
+        choosePaper()
         if (document.getElementById('imageP')) {
             (document.getElementById('imageP')).remove();
         }
@@ -58,8 +60,21 @@ function playerPlay() {
         img.src = 'images/scissors1.png';
         const src = document.getElementById('playerWep');
         src.appendChild(img);
+        chooseScissors()
         
     })
+
+    function chooseRock() {
+        playerChoice = 'rock';
+    }
+    function choosePaper() {
+        playerChoice = 'paper';
+    }
+    function chooseScissors() {
+        playerChoice = 'scissors';
+    }
+
+    return playerChoice;
 }
 
 // computer select function

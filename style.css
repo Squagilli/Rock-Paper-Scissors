@@ -1,6 +1,6 @@
 /* containers */
 .scoreboard {
-    border: 1px solid black;
+    border: 3px solid black;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-around;
@@ -101,7 +101,7 @@
 
 /* game screen items */
 .playerWeapon {
-    border: 1px solid black;
+    border: 3px solid black;
     padding: 1rem;
     max-width: 15vw;
     height: 15vh;
@@ -111,7 +111,7 @@
     text-align: center;
 }
 .compWeapon {
-    border: 1px solid black;
+    border: 3px solid black;
     padding: 1rem;
     max-width: 15vw;
     height: 15vh;
@@ -214,6 +214,7 @@
     
         font-size: 15px;
     }
+    
     .gameScreen {
     
         margin-left: 0;
