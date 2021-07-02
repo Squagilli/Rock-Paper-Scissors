@@ -10,14 +10,12 @@ const compWeapon = document.getElementById('compWep');
 const roundResult = document.getElementById('roundResult');
 const playerScore = document.getElementById('scoreplayer');
 const compScore = document.getElementById('scoreComp');
-
-
-
-let playerChoice = '';
-
 const img = '';
 const src = ''; 
 
+
+// player onclick function
+let playerChoice = '';
 
 function playerPlay() {
     rockSelect.addEventListener('click', function(){
@@ -31,11 +29,10 @@ function playerPlay() {
         img.src = 'images/rock1.png';
         const src = document.getElementById('playerWep');
         src.appendChild(img);
-        chooseRock()
+        chooseRock();
     })
     paperSelect.addEventListener('click', function(){
         computerPlay();
-        choosePaper()
         if (document.getElementById('imageP')) {
             (document.getElementById('imageP')).remove();
         }
@@ -45,8 +42,7 @@ function playerPlay() {
         img.src = 'images/paper1.png';
         const src = document.getElementById('playerWep');
         src.appendChild(img);
-        
-        
+        choosePaper();
     })
     scissorSelect.addEventListener('click', function(){
         computerPlay();
@@ -59,10 +55,9 @@ function playerPlay() {
         img.src = 'images/scissors1.png';
         const src = document.getElementById('playerWep');
         src.appendChild(img);
-        chooseScissors()
-        
+        chooseScissors();
     })
-
+    
     function chooseRock() {
         playerChoice = 'rock';
     }
@@ -75,8 +70,12 @@ function playerPlay() {
 
     return playerChoice;
 }
-let computerChoice = '';
+
+
 // computer select function
+let computerChoice = '';
+
+
 function computerPlay() {
     const choices = ['rock', 'paper', 'scissors'];
     computerChoice = choices[Math.floor(Math.random() * choices.length)];
@@ -113,31 +112,16 @@ function computerPlay() {
         const src = document.getElementById('compWep');
         src.appendChild(img);
     }
+
     return computerChoice;
 }
 
+let playerSelection = '';
+let computerSelection = '';
 
-//playerPlay();
+
+playerPlay();
 
 // create new game function
-function newGame() {
-    playerPlay();
-    if (playerChoice === 'rock' && computerChoice === 'scissors'){
-        roundResult.innerHTML = 'Rock beats Scissors'
-    }
-}
 
-const playerSelection = '';
-const computerSelection = '';
 
-newGame()
-
-    // on click new game 
-    // player play
-    // computer play
-
-    // compare choices
-
-    // store points
-
-    // end game after 5 rounds
