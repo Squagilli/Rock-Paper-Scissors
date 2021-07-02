@@ -15,13 +15,11 @@ const compScore = document.getElementById('scoreComp');
 const img = '';
 const src = ''; 
 
-
 // player onclick function
 
-let playerChoice;
-let computerChoice;
+let playerChoice = '';
 
-function playerPlay(playerChoice) {
+function playerPlay() {
     
     rockSelect.addEventListener('click', function(){
         chooseRock();
@@ -35,6 +33,7 @@ function playerPlay(playerChoice) {
         img.src = 'images/rock1.png';
         const src = document.getElementById('playerWep');
         src.appendChild(img);
+
      
     })
     paperSelect.addEventListener('click', function(){
@@ -49,6 +48,8 @@ function playerPlay(playerChoice) {
         img.src = 'images/paper1.png';
         const src = document.getElementById('playerWep');
         src.appendChild(img);
+
+        
       
     })
     scissorSelect.addEventListener('click', function(){
@@ -68,15 +69,19 @@ function playerPlay(playerChoice) {
     
     function chooseRock() {
         pWepLabel.innerHTML = 'Rock';
+        
     }
     function choosePaper() {
         pWepLabel.innerHTML = 'Paper';
+        
     }
     function chooseScissors() {
         pWepLabel.innerHTML = 'Scissors';
+        
     }
 
     return playerChoice;
+    
 }
 
 
@@ -84,7 +89,9 @@ function playerPlay(playerChoice) {
 
 
 
-function computerPlay(computerChoice) {
+let computerChoice = '';
+
+function computerPlay() {
     const choices = ['rock', 'paper', 'scissors'];
     computerChoice = choices[Math.floor(Math.random() * choices.length)];
     if (computerChoice === 'rock') {
@@ -97,6 +104,8 @@ function computerPlay(computerChoice) {
         img.id = 'imageC';
         const src = document.getElementById('compWep');
         src.appendChild(img);
+
+        cRock = true;
 
         compWepLabel.innerHTML = 'Rock';
     }
@@ -111,6 +120,8 @@ function computerPlay(computerChoice) {
         const src = document.getElementById('compWep');
         src.appendChild(img);
 
+        cPaper = true;
+
         compWepLabel.innerHTML = 'Paper';
     }
     else if (computerChoice === 'scissors') {
@@ -124,6 +135,8 @@ function computerPlay(computerChoice) {
         const src = document.getElementById('compWep');
         src.appendChild(img);
 
+        cScissors = true;
+
         compWepLabel.innerHTML = 'Scissors';
     }
 
@@ -132,9 +145,28 @@ function computerPlay(computerChoice) {
 
 
 
+function newGame(playerSelection, computerSelection) {
+    playerSelection = playerPlay();
+    
+
+    if (rockChosen = true) {
+        roundResult.innerHTML = 'Rock';
+    }
+    else if (paperChosen = true) {
+        roundResult.innerHTML = 'Paper';
+    }
+    else if (scissorsChosen = true) {
+        roundResult.innerHTML = 'Scissors';
+    }
+
+    return playerSelection, computerSelection;
+}
+
+
+let playerSelection = '';
+let computerSelection = '';
+
 playerPlay();
-
-
 // create new game function
 
 
