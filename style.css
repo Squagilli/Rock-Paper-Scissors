@@ -73,6 +73,7 @@
     align-self: center;
     text-align: left;
 
+
     font-family: 'Padauk', sans-serif;
 
     
@@ -265,7 +266,7 @@
         
 
         flex: 1 2 -1rem;
-        align-self: start;
+        align-self: center;
         text-align: center;
     }
     .playerScore {

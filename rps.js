@@ -27,7 +27,7 @@ function playerPlay() {
 
     
     rockSelect.addEventListener('click', function(){
-        chooseRock();
+        //chooseRock();
         computerPlay();
         if (document.getElementById('imageP')) {
             (document.getElementById('imageP')).remove();
@@ -52,20 +52,22 @@ function playerPlay() {
             roundResult.innerHTML = `Player wins! Rock beats Scissors.`
             wins++
             console.log(wins);
-            playerScore.innerHTML = `Player Score: ${wins}`
+            //playerScore.innerHTML = `Player Score: ${wins}`
+            pWepLabel.innerHTML = `Player Score: ${wins}`;
         }
         else if (computerChoice === 'paper') {
             roundResult.innerHTML = `Comp wins. Paper beats Rock.`
             losses++
             console.log(losses);
-            compScore.innerHTML = `Computer Score: ${losses}`
+            //compScore.innerHTML = `Computer Score: ${losses}`
+            compWepLabel.innerHTML = `Computer Score: ${losses}`;
         }
 
 
      
     })
     paperSelect.addEventListener('click', function(){
-        choosePaper();
+        //choosePaper();
         computerPlay();
         if (document.getElementById('imageP')) {
             (document.getElementById('imageP')).remove();
@@ -85,13 +87,15 @@ function playerPlay() {
             roundResult.innerHTML = `Player wins! Paper beats Rock.`
             wins++
             console.log(wins);
-            playerScore.innerHTML = `Player Score: ${wins}`
+            //playerScore.innerHTML = `Player Score: ${wins}`
+            pWepLabel.innerHTML = `Player Score: ${wins}`;
         }
         else if (computerChoice === 'scissors') {
             roundResult.innerHTML = `Comp wins. Scissors beats Paper.`
             losses++
             console.log(losses);
-            compScore.innerHTML = `Computer Score: ${losses}`
+            //compScore.innerHTML = `Computer Score: ${losses}`
+            compWepLabel.innerHTML = `Computer Score: ${losses}`;
         }
         else if (computerChoice === 'paper') {
             roundResult.innerHTML = `Tie. Both chose Paper.`
@@ -102,7 +106,7 @@ function playerPlay() {
       
     })
     scissorSelect.addEventListener('click', function(){
-        chooseScissors();
+        //chooseScissors();
         computerPlay();
         if (document.getElementById('imageP')) {
             (document.getElementById('imageP')).remove();
@@ -122,7 +126,8 @@ function playerPlay() {
             roundResult.innerHTML = `Comp wins. Rock beats Scissors.`
             losses++
             console.log(losses);
-            compScore.innerHTML = `Computer Score: ${losses}`
+            //compScore.innerHTML = `Computer Score: ${losses}`;
+            compWepLabel.innerHTML = `Computer Score: ${losses}`;
         }
         else if (computerChoice === 'scissors') {
             roundResult.innerHTML = `Tie. Both chose Scissors`
@@ -133,23 +138,21 @@ function playerPlay() {
             roundResult.innerHTML = `Player wins! Scissors beats Paper.`
             wins++
             console.log(wins);
-            playerScore.innerHTML = `Player Score: ${wins}`
+            //playerScore.innerHTML = `Player Score: ${wins}`
+            pWepLabel.innerHTML = `Player Score: ${wins}`;
         }
 
 
         
     })
     
-    function chooseRock() {
-        pWepLabel.innerHTML = 'Rock';
+    /*function chooseRock() {
         
     }
     function choosePaper() {
-        pWepLabel.innerHTML = 'Paper';
     }
     function chooseScissors() {
-        pWepLabel.innerHTML = 'Scissors';
-    }
+    }*/
 
     return playerChoice;
     
@@ -175,8 +178,6 @@ function computerPlay() {
         img.id = 'imageC';
         const src = document.getElementById('compWep');
         src.appendChild(img);
-
-        compWepLabel.innerHTML = 'Rock';
         console.log(computerChoice);
     }
     else if (computerChoice === 'paper') {
@@ -189,8 +190,6 @@ function computerPlay() {
         img.src = 'images/paper1.png';
         const src = document.getElementById('compWep');
         src.appendChild(img);
-
-        compWepLabel.innerHTML = 'Paper';
         console.log(computerChoice);
     }
     else if (computerChoice === 'scissors') {
@@ -203,8 +202,6 @@ function computerPlay() {
         img.src = 'images/scissors1.png';
         const src = document.getElementById('compWep');
         src.appendChild(img);
-
-        compWepLabel.innerHTML = 'Scissors';
         console.log(computerChoice);
     }
 
