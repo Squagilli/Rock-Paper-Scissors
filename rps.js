@@ -7,6 +7,8 @@ const scissorSelect = document.getElementById('scissorPicture');
 // image or text fields to be manipulated
 const playerWeapon = document.getElementById('playerWep');
 const compWeapon = document.getElementById('compWep');
+const pWepLabel = document.querySelector('.playerWeaponLabel');
+const compWepLabel = document.querySelector('.compWeaponLabel');
 const roundResult = document.getElementById('roundResult');
 const playerScore = document.getElementById('scoreplayer');
 const compScore = document.getElementById('scoreComp');
@@ -15,10 +17,14 @@ const src = '';
 
 
 // player onclick function
-let playerChoice = '';
 
-function playerPlay() {
+let playerChoice;
+let computerChoice;
+
+function playerPlay(playerChoice) {
+    
     rockSelect.addEventListener('click', function(){
+        chooseRock();
         computerPlay();
         if (document.getElementById('imageP')) {
             (document.getElementById('imageP')).remove();
@@ -29,9 +35,10 @@ function playerPlay() {
         img.src = 'images/rock1.png';
         const src = document.getElementById('playerWep');
         src.appendChild(img);
-        chooseRock();
+     
     })
     paperSelect.addEventListener('click', function(){
+        choosePaper();
         computerPlay();
         if (document.getElementById('imageP')) {
             (document.getElementById('imageP')).remove();
@@ -42,9 +49,10 @@ function playerPlay() {
         img.src = 'images/paper1.png';
         const src = document.getElementById('playerWep');
         src.appendChild(img);
-        choosePaper();
+      
     })
     scissorSelect.addEventListener('click', function(){
+        chooseScissors();
         computerPlay();
         if (document.getElementById('imageP')) {
             (document.getElementById('imageP')).remove();
@@ -55,17 +63,17 @@ function playerPlay() {
         img.src = 'images/scissors1.png';
         const src = document.getElementById('playerWep');
         src.appendChild(img);
-        chooseScissors();
+        
     })
     
     function chooseRock() {
-        playerChoice = 'rock';
+        pWepLabel.innerHTML = 'Rock';
     }
     function choosePaper() {
-        playerChoice = 'paper';
+        pWepLabel.innerHTML = 'Paper';
     }
     function chooseScissors() {
-        playerChoice = 'scissors';
+        pWepLabel.innerHTML = 'Scissors';
     }
 
     return playerChoice;
@@ -73,10 +81,10 @@ function playerPlay() {
 
 
 // computer select function
-let computerChoice = '';
 
 
-function computerPlay() {
+
+function computerPlay(computerChoice) {
     const choices = ['rock', 'paper', 'scissors'];
     computerChoice = choices[Math.floor(Math.random() * choices.length)];
     if (computerChoice === 'rock') {
@@ -89,6 +97,8 @@ function computerPlay() {
         img.id = 'imageC';
         const src = document.getElementById('compWep');
         src.appendChild(img);
+
+        compWepLabel.innerHTML = 'Rock';
     }
     else if (computerChoice === 'paper') {
         if (document.getElementById('imageC')) {
@@ -100,6 +110,8 @@ function computerPlay() {
         img.src = 'images/paper1.png';
         const src = document.getElementById('compWep');
         src.appendChild(img);
+
+        compWepLabel.innerHTML = 'Paper';
     }
     else if (computerChoice === 'scissors') {
         if (document.getElementById('imageC')) {
@@ -111,16 +123,17 @@ function computerPlay() {
         img.src = 'images/scissors1.png';
         const src = document.getElementById('compWep');
         src.appendChild(img);
+
+        compWepLabel.innerHTML = 'Scissors';
     }
 
     return computerChoice;
 }
 
-let playerSelection = '';
-let computerSelection = '';
 
 
 playerPlay();
+
 
 // create new game function
 
