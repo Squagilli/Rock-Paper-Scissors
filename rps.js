@@ -32,30 +32,25 @@ rockSelect.addEventListener('click', onRockClick)
 paperSelect.addEventListener('click', onPaperClick)
 scissorSelect.addEventListener('click', onScissorsClick)
 
-function getPlayerImage() {
-    const element = document.getElementById('imageP')
+function getImageElement(id) {
+    const element = document.getElementById(id)
 
     if (element !== null) {
         return element;
     }
 
     const newElement = document.createElement('img');
-    newElement.id = 'imageP';
+    newElement.id = id;
 
     return newElement;
 }
 
+function getPlayerImage() {
+    return getImageElement('imageP')
+}
+
 function getComputerImage() {
-    const element = document.getElementById('imageC')
-
-    if (element !== null) {
-        return element;
-    }
-
-    const newElement = document.createElement('img');
-    newElement.id = 'imageC';
-
-    return newElement;
+    return getImageElement('imageC')
 }
 
 function displayPlayerImage(choice) {
