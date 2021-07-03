@@ -168,14 +168,6 @@ function playerPlay() {
 
         
     })
-    
-    /*function chooseRock() {
-        
-    }
-    function choosePaper() {
-    }
-    function chooseScissors() {
-    }*/
 
     return playerChoice;
     
@@ -231,28 +223,6 @@ function computerPlay() {
     return computerChoice;
 }
 
-
-
-function newGame(playerSelection, computerSelection) {
-    playerSelection = playerPlay();
-    
-
-    if (rockChosen = true) {
-        roundResult.innerHTML = 'Rock';
-    }
-    else if (paperChosen = true) {
-        roundResult.innerHTML = 'Paper';
-    }
-    else if (scissorsChosen = true) {
-        roundResult.innerHTML = 'Scissors';
-    }
-
-    return playerSelection, computerSelection;
-}
-
-
-let playerSelection = '';
-let computerSelection = '';
 
 playerPlay();
 // create new game function
