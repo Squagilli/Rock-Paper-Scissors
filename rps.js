@@ -52,22 +52,27 @@ function playerPlay() {
             roundResult.innerHTML = `Player wins! Rock beats Scissors.`
             wins++
             console.log(wins);
-            //playerScore.innerHTML = `Player Score: ${wins}`
             pWepLabel.innerHTML = `Player Score: ${wins}`;
+
+            if (wins >= 5) {
+                alert('Game Over. You won 5 rounds!');
+            }
         }
         else if (computerChoice === 'paper') {
             roundResult.innerHTML = `Comp wins. Paper beats Rock.`
             losses++
             console.log(losses);
-            //compScore.innerHTML = `Computer Score: ${losses}`
             compWepLabel.innerHTML = `Computer Score: ${losses}`;
+
+            if (losses >= 5) {
+                alert('Game Over. Computer won 5 rounds.');
+            }
         }
 
 
      
     })
     paperSelect.addEventListener('click', function(){
-        //choosePaper();
         computerPlay();
         if (document.getElementById('imageP')) {
             (document.getElementById('imageP')).remove();
@@ -87,15 +92,21 @@ function playerPlay() {
             roundResult.innerHTML = `Player wins! Paper beats Rock.`
             wins++
             console.log(wins);
-            //playerScore.innerHTML = `Player Score: ${wins}`
             pWepLabel.innerHTML = `Player Score: ${wins}`;
+
+            if (wins >= 5) {
+                alert('Game Over. You won 5 rounds!');
+            }
         }
         else if (computerChoice === 'scissors') {
             roundResult.innerHTML = `Comp wins. Scissors beats Paper.`
             losses++
             console.log(losses);
-            //compScore.innerHTML = `Computer Score: ${losses}`
-            compWepLabel.innerHTML = `Computer Score: ${losses}`;
+            compWepLabel.innerHTML = `Computer Score: ${losses}`
+            
+            if (losses >= 5) {
+                alert('Game Over. Computer won 5 rounds.');
+            }
         }
         else if (computerChoice === 'paper') {
             roundResult.innerHTML = `Tie. Both chose Paper.`
@@ -106,7 +117,6 @@ function playerPlay() {
       
     })
     scissorSelect.addEventListener('click', function(){
-        //chooseScissors();
         computerPlay();
         if (document.getElementById('imageP')) {
             (document.getElementById('imageP')).remove();
@@ -126,8 +136,11 @@ function playerPlay() {
             roundResult.innerHTML = `Comp wins. Rock beats Scissors.`
             losses++
             console.log(losses);
-            //compScore.innerHTML = `Computer Score: ${losses}`;
             compWepLabel.innerHTML = `Computer Score: ${losses}`;
+
+            if (losses >= 5) {
+                alert('Game Over. Computer won 5 rounds.');
+            }
         }
         else if (computerChoice === 'scissors') {
             roundResult.innerHTML = `Tie. Both chose Scissors`
@@ -138,9 +151,13 @@ function playerPlay() {
             roundResult.innerHTML = `Player wins! Scissors beats Paper.`
             wins++
             console.log(wins);
-            //playerScore.innerHTML = `Player Score: ${wins}`
             pWepLabel.innerHTML = `Player Score: ${wins}`;
+
+            if (wins >= 5) {
+                alert('Game Over. You won 5 rounds!');
+            }
         }
+
 
 
         
