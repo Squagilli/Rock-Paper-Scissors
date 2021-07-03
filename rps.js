@@ -1,20 +1,13 @@
 // buttons to be manipulated
-const newButton = document.getElementById('newGameButton'); 
 const rockSelect = document.getElementById('rockPicture');
 const paperSelect = document.getElementById('paperPicture');
 const scissorSelect = document.getElementById('scissorPicture');
-const reloadButton = document.querySelector('.newGame');
 
 // image or text fields to be manipulated
-const playerWeapon = document.getElementById('playerWep');
-const compWeapon = document.getElementById('compWep');
 const pWepLabel = document.querySelector('.playerWeaponLabel');
 const compWepLabel = document.querySelector('.compWeaponLabel');
 const roundResult = document.getElementById('roundResult');
-const playerScore = document.getElementById('scorePlayer');
-const compScore = document.getElementById('scoreComp');
 const img = '';
-const src = ''; 
 
 // player onclick function
 let playerChoice = 'default';
@@ -29,8 +22,11 @@ const CHOICE = {
     SCISSORS: 'scissors'
 }
 
-rockSelect.addEventListener('click', function(){
-    //chooseRock();
+rockSelect.addEventListener('click', onRockClick)
+paperSelect.addEventListener('click', onPaperClick)
+scissorSelect.addEventListener('click', onScissorsClick)
+
+function onRockClick () {
     computerPlay();
     if (document.getElementById('imageP')) {
         (document.getElementById('imageP')).remove();
@@ -65,10 +61,9 @@ rockSelect.addEventListener('click', function(){
         //compScore.innerHTML = `Computer Score: ${losses}`
         compWepLabel.innerHTML = `Computer Score: ${losses}`;
     }
-})
+}
 
-paperSelect.addEventListener('click', function(){
-    //choosePaper();
+function onPaperClick () {
     computerPlay();
     if (document.getElementById('imageP')) {
         (document.getElementById('imageP')).remove();
@@ -103,12 +98,9 @@ paperSelect.addEventListener('click', function(){
         draws++
         console.log(draws);
     }
+}
 
-
-})
-
-scissorSelect.addEventListener('click', function(){
-    //chooseScissors();
+function onScissorsClick () {
     computerPlay();
     if (document.getElementById('imageP')) {
         (document.getElementById('imageP')).remove();
@@ -119,7 +111,6 @@ scissorSelect.addEventListener('click', function(){
     img.src = 'images/scissors1.png';
     const src = document.getElementById('playerWep');
     src.appendChild(img);
-
 
     playerChoice = CHOICE.SCISSORS;
     console.log(playerChoice);
@@ -143,16 +134,7 @@ scissorSelect.addEventListener('click', function(){
         //playerScore.innerHTML = `Player Score: ${wins}`
         pWepLabel.innerHTML = `Player Score: ${wins}`;
     }
-
-
-
-})
-
-
-function playerPlay() {
-    return playerChoice;
 }
-
 
 // computer select function
 let computerChoice = '';
@@ -199,8 +181,5 @@ function computerPlay() {
 
     return computerChoice;
 }
-
-playerPlay();
-// create new game function
 
 
