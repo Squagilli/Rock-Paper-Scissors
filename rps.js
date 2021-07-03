@@ -35,7 +35,7 @@ function playerPlay() {
         const img = document.createElement('img');
         img.className = 'rock';
         img.id = 'imageP';
-        img.src = 'images/rock1.png';
+        img.src = 'images/axe.png';
         const src = document.getElementById('playerWep');
         src.appendChild(img);
 
@@ -75,7 +75,7 @@ function playerPlay() {
         const img = document.createElement('img');
         img.className = 'paper';
         img.id = 'imageP';
-        img.src = 'images/paper1.png';
+        img.src = 'images/document.png';
         const src = document.getElementById('playerWep');
         src.appendChild(img);
 
@@ -114,7 +114,7 @@ function playerPlay() {
         const img = document.createElement('img');
         img.className = 'scissors';
         img.id = 'imageP';
-        img.src = 'images/scissors1.png';
+        img.src = 'images/scissors.png';
         const src = document.getElementById('playerWep');
         src.appendChild(img);
 
@@ -174,7 +174,7 @@ function computerPlay() {
         }
         const img = document.createElement('img');
         img.className = 'rock';
-        img.src = 'images/rock1.png';
+        img.src = 'images/axe.png';
         img.id = 'imageC';
         const src = document.getElementById('compWep');
         src.appendChild(img);
@@ -187,7 +187,7 @@ function computerPlay() {
         const img = document.createElement('img');
         img.className = 'paper';
         img.id = 'imageC';
-        img.src = 'images/paper1.png';
+        img.src = 'images/document.png';
         const src = document.getElementById('compWep');
         src.appendChild(img);
         console.log(computerChoice);
@@ -199,7 +199,7 @@ function computerPlay() {
         const img = document.createElement('img');
         img.className = 'scissors';
         img.id = 'imageC';
-        img.src = 'images/scissors1.png';
+        img.src = 'images/scissors.png';
         const src = document.getElementById('compWep');
         src.appendChild(img);
         console.log(computerChoice);
