@@ -10,6 +10,8 @@ const roundResult = document.getElementById('roundResult');
 
 // player onclick function
 let playerChoice = 'default';
+// computer select function
+let computerChoice = '';
 let draws = 0;
 let wins = 0;
 let losses = 0;
@@ -51,9 +53,9 @@ const RULES_MAP = {
     }
 }
 
-rockSelect.addEventListener('click', onRockClick)
-paperSelect.addEventListener('click', onPaperClick)
-scissorSelect.addEventListener('click', onScissorsClick)
+rockSelect.addEventListener('click', onPlayerChoiceClick)
+paperSelect.addEventListener('click', onPlayerChoiceClick)
+scissorSelect.addEventListener('click', onPlayerChoiceClick)
 
 function getImageElement(id, container) {
     const element = document.getElementById(id)
@@ -86,29 +88,14 @@ function displayImage(imgElement, choice) {
     imgElement.src = CHOICE_IMAGES[choice];
 }
 
-function onRockClick () {
+function onPlayerChoiceClick(event) {
+    const newChoice = event.target.getAttribute('data-choice')
+
     computerPlay();
 
-    displayImage(getPlayerImage(), CHOICE.ROCK)
+    displayImage(getPlayerImage(), newChoice)
 
-    playerChoice = CHOICE.ROCK;
-
-    const result = RULES_MAP[playerChoice][computerChoice]
-
-    displayRoundResult(
-        result,
-        playerChoice,
-        computerChoice
-    )
-}
-
-function onPaperClick () {
-    computerPlay();
-
-    displayImage(getPlayerImage(), CHOICE.PAPER)
-
-    playerChoice = CHOICE.PAPER;
-    console.log(playerChoice);
+    playerChoice = newChoice;
 
     const result = RULES_MAP[playerChoice][computerChoice]
 
@@ -153,26 +140,6 @@ function displayDrawResult(choice) {
     draws++
     console.log(draws);
 }
-
-function onScissorsClick () {
-    computerPlay();
-
-    displayImage(getPlayerImage(), CHOICE.SCISSORS)
-
-    playerChoice = CHOICE.SCISSORS;
-    console.log(playerChoice);
-
-    const result = RULES_MAP[playerChoice][computerChoice]
-
-    displayRoundResult(
-        result,
-        playerChoice,
-        computerChoice
-    )
-}
-
-// computer select function
-let computerChoice = '';
 
 function computerPlay() {
     const choices = [CHOICE.ROCK, CHOICE.PAPER, CHOICE.SCISSORS];
