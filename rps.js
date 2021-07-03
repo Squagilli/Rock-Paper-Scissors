@@ -7,7 +7,6 @@ const scissorSelect = document.getElementById('scissorPicture');
 const pWepLabel = document.querySelector('.playerWeaponLabel');
 const compWepLabel = document.querySelector('.compWeaponLabel');
 const roundResult = document.getElementById('roundResult');
-const img = '';
 
 // player onclick function
 let playerChoice = 'default';
