@@ -56,6 +56,7 @@ function playerPlay() {
 
             if (wins >= 5) {
                 alert('Game Over. You won 5 rounds!');
+                location.reload();
             }
         }
         else if (computerChoice === 'paper') {
@@ -66,6 +67,7 @@ function playerPlay() {
 
             if (losses >= 5) {
                 alert('Game Over. Computer won 5 rounds.');
+                location.reload();
             }
         }
 
@@ -96,6 +98,7 @@ function playerPlay() {
 
             if (wins >= 5) {
                 alert('Game Over. You won 5 rounds!');
+                location.reload();
             }
         }
         else if (computerChoice === 'scissors') {
@@ -106,6 +109,7 @@ function playerPlay() {
             
             if (losses >= 5) {
                 alert('Game Over. Computer won 5 rounds.');
+                location.reload();
             }
         }
         else if (computerChoice === 'paper') {
@@ -140,6 +144,7 @@ function playerPlay() {
 
             if (losses >= 5) {
                 alert('Game Over. Computer won 5 rounds.');
+                location.reload();
             }
         }
         else if (computerChoice === 'scissors') {
@@ -155,6 +160,7 @@ function playerPlay() {
 
             if (wins >= 5) {
                 alert('Game Over. You won 5 rounds!');
+                location.reload();
             }
         }
 
