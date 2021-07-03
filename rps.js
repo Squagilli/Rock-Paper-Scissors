@@ -8,14 +8,6 @@ const pWepLabel = document.querySelector('.playerWeaponLabel');
 const compWepLabel = document.querySelector('.compWeaponLabel');
 const roundResult = document.getElementById('roundResult');
 
-// player onclick function
-let playerChoice = 'default';
-// computer select function
-let computerChoice = '';
-let draws = 0;
-let wins = 0;
-let losses = 0;
-
 const CHOICE = {
     DEFAULT: 'default',
     ROCK: 'rock',
@@ -51,6 +43,20 @@ const RULES_MAP = {
         [CHOICE.PAPER]: GAME_MOVE.WIN,
         [CHOICE.SCISSORS]: GAME_MOVE.DRAW
     }
+}
+
+const playerState = {
+    choice: CHOICE.DEFAULT
+}
+
+const computerState = {
+    choice: CHOICE.DEFAULT
+}
+
+const gameState = {
+    wins: 0,
+    draws: 0,
+    losses: 0,
 }
 
 rockSelect.addEventListener('click', onPlayerChoiceClick)
@@ -95,14 +101,14 @@ function onPlayerChoiceClick(event) {
 
     displayImage(getPlayerImage(), newChoice)
 
-    playerChoice = newChoice;
+    playerState.choice = newChoice;
 
-    const result = RULES_MAP[playerChoice][computerChoice]
+    const result = RULES_MAP[playerState.choice][computerState.choice]
 
     displayRoundResult(
         result,
-        playerChoice,
-        computerChoice
+        playerState.choice,
+        computerState.choice
     )
 }
 
@@ -123,33 +129,33 @@ function displayRoundResult(result, playerChoice, computerChoice) {
 
 function displayWinResult(playerChoice, computerChoice) {
     roundResult.innerHTML = `Player wins! ${playerChoice} beats ${computerChoice}.`
-    wins++
-    console.log(wins);
-    pWepLabel.innerHTML = `Player Score: ${wins}`;
+    gameState.wins++
+    console.log(gameState.wins);
+    pWepLabel.innerHTML = `Player Score: ${gameState.wins}`;
 }
 
 function displayLossResult(playerChoice, computerChoice) {
     roundResult.innerHTML = `Comp wins. ${computerChoice} beats ${playerChoice}.`
-    losses++
-    console.log(losses);
-    compWepLabel.innerHTML = `Computer Score: ${losses}`;
+    gameState.losses++
+    console.log(gameState.losses);
+    compWepLabel.innerHTML = `Computer Score: ${gameState.losses}`;
 }
 
 function displayDrawResult(choice) {
     roundResult.innerHTML = `Tie. Both chose ${choice}`
-    draws++
-    console.log(draws);
+    gameState.losses++
+    console.log(gameState.losses);
 }
 
 function computerPlay() {
     const choices = [CHOICE.ROCK, CHOICE.PAPER, CHOICE.SCISSORS];
-    computerChoice = choices[Math.floor(Math.random() * choices.length)];
+    computerState.choice = choices[Math.floor(Math.random() * choices.length)];
 
-    displayImage(getComputerImage(), computerChoice)
+    displayImage(getComputerImage(), computerState.choice)
 
-    console.log(computerChoice);
+    console.log(computerState.choice);
 
-    return computerChoice;
+    return computerState.choice;
 }
 
 
