@@ -22,182 +22,174 @@ let draws = 0;
 let wins = 0;
 let losses = 0;
 
+const CHOICE = {
+    DEFAULT: 'default',
+    ROCK: 'rock',
+    PAPER: 'paper',
+    SCISSORS: 'scissors'
+}
+
+rockSelect.addEventListener('click', function(){
+    //chooseRock();
+    computerPlay();
+    if (document.getElementById('imageP')) {
+        (document.getElementById('imageP')).remove();
+    }
+    const img = document.createElement('img');
+    img.className = CHOICE.ROCK;
+    img.id = 'imageP';
+    img.src = 'images/rock1.png';
+    const src = document.getElementById('playerWep');
+    src.appendChild(img);
+
+
+    playerChoice = CHOICE.ROCK;
+    console.log(playerChoice);
+
+    if (computerChoice === CHOICE.ROCK) {
+        roundResult.innerHTML = `Tie. Both chose Rock.`
+        draws++
+        console.log(draws);
+    }
+    else if (computerChoice === CHOICE.SCISSORS) {
+        roundResult.innerHTML = `Player wins! Rock beats Scissors.`
+        wins++
+        console.log(wins);
+        //playerScore.innerHTML = `Player Score: ${wins}`
+        pWepLabel.innerHTML = `Player Score: ${wins}`;
+    }
+    else if (computerChoice === CHOICE.PAPER) {
+        roundResult.innerHTML = `Comp wins. Paper beats Rock.`
+        losses++
+        console.log(losses);
+        //compScore.innerHTML = `Computer Score: ${losses}`
+        compWepLabel.innerHTML = `Computer Score: ${losses}`;
+    }
+})
+
+paperSelect.addEventListener('click', function(){
+    //choosePaper();
+    computerPlay();
+    if (document.getElementById('imageP')) {
+        (document.getElementById('imageP')).remove();
+    }
+    const img = document.createElement('img');
+    img.className = CHOICE.PAPER;
+    img.id = 'imageP';
+    img.src = 'images/paper1.png';
+    const src = document.getElementById('playerWep');
+    src.appendChild(img);
+
+
+    playerChoice = CHOICE.PAPER;
+    console.log(playerChoice);
+
+    if (computerChoice === CHOICE.ROCK) {
+        roundResult.innerHTML = `Player wins! Paper beats Rock.`
+        wins++
+        console.log(wins);
+        //playerScore.innerHTML = `Player Score: ${wins}`
+        pWepLabel.innerHTML = `Player Score: ${wins}`;
+    }
+    else if (computerChoice === CHOICE.SCISSORS) {
+        roundResult.innerHTML = `Comp wins. Scissors beats Paper.`
+        losses++
+        console.log(losses);
+        //compScore.innerHTML = `Computer Score: ${losses}`
+        compWepLabel.innerHTML = `Computer Score: ${losses}`;
+    }
+    else if (computerChoice === CHOICE.PAPER) {
+        roundResult.innerHTML = `Tie. Both chose Paper.`
+        draws++
+        console.log(draws);
+    }
+
+
+})
+
+scissorSelect.addEventListener('click', function(){
+    //chooseScissors();
+    computerPlay();
+    if (document.getElementById('imageP')) {
+        (document.getElementById('imageP')).remove();
+    }
+    const img = document.createElement('img');
+    img.className = CHOICE.SCISSORS;
+    img.id = 'imageP';
+    img.src = 'images/scissors1.png';
+    const src = document.getElementById('playerWep');
+    src.appendChild(img);
+
+
+    playerChoice = CHOICE.SCISSORS;
+    console.log(playerChoice);
+
+    if (computerChoice === CHOICE.ROCK) {
+        roundResult.innerHTML = `Comp wins. Rock beats Scissors.`
+        losses++
+        console.log(losses);
+        //compScore.innerHTML = `Computer Score: ${losses}`;
+        compWepLabel.innerHTML = `Computer Score: ${losses}`;
+    }
+    else if (computerChoice === CHOICE.SCISSORS) {
+        roundResult.innerHTML = `Tie. Both chose Scissors`
+        draws++
+        console.log(draws);
+    }
+    else if (computerChoice === CHOICE.PAPER) {
+        roundResult.innerHTML = `Player wins! Scissors beats Paper.`
+        wins++
+        console.log(wins);
+        //playerScore.innerHTML = `Player Score: ${wins}`
+        pWepLabel.innerHTML = `Player Score: ${wins}`;
+    }
+
+
+
+})
+
 
 function playerPlay() {
-
-    
-    rockSelect.addEventListener('click', function(){
-        //chooseRock();
-        computerPlay();
-        if (document.getElementById('imageP')) {
-            (document.getElementById('imageP')).remove();
-        }
-        const img = document.createElement('img');
-        img.className = 'rock';
-        img.id = 'imageP';
-        img.src = 'images/rock1.png';
-        const src = document.getElementById('playerWep');
-        src.appendChild(img);
-
-
-        playerChoice = 'rock';
-        console.log(playerChoice);
-
-        if (computerChoice === 'rock') {
-            roundResult.innerHTML = `Tie. Both chose Rock.`
-            draws++
-            console.log(draws);
-        }
-        else if (computerChoice === 'scissors') {
-            roundResult.innerHTML = `Player wins! Rock beats Scissors.`
-            wins++
-            console.log(wins);
-            //playerScore.innerHTML = `Player Score: ${wins}`
-            pWepLabel.innerHTML = `Player Score: ${wins}`;
-        }
-        else if (computerChoice === 'paper') {
-            roundResult.innerHTML = `Comp wins. Paper beats Rock.`
-            losses++
-            console.log(losses);
-            //compScore.innerHTML = `Computer Score: ${losses}`
-            compWepLabel.innerHTML = `Computer Score: ${losses}`;
-        }
-
-
-     
-    })
-    paperSelect.addEventListener('click', function(){
-        //choosePaper();
-        computerPlay();
-        if (document.getElementById('imageP')) {
-            (document.getElementById('imageP')).remove();
-        }
-        const img = document.createElement('img');
-        img.className = 'paper';
-        img.id = 'imageP';
-        img.src = 'images/paper1.png';
-        const src = document.getElementById('playerWep');
-        src.appendChild(img);
-
-
-        playerChoice = 'paper';
-        console.log(playerChoice);
-
-        if (computerChoice === 'rock') {
-            roundResult.innerHTML = `Player wins! Paper beats Rock.`
-            wins++
-            console.log(wins);
-            //playerScore.innerHTML = `Player Score: ${wins}`
-            pWepLabel.innerHTML = `Player Score: ${wins}`;
-        }
-        else if (computerChoice === 'scissors') {
-            roundResult.innerHTML = `Comp wins. Scissors beats Paper.`
-            losses++
-            console.log(losses);
-            //compScore.innerHTML = `Computer Score: ${losses}`
-            compWepLabel.innerHTML = `Computer Score: ${losses}`;
-        }
-        else if (computerChoice === 'paper') {
-            roundResult.innerHTML = `Tie. Both chose Paper.`
-            draws++
-            console.log(draws);
-        }
-        
-      
-    })
-    scissorSelect.addEventListener('click', function(){
-        //chooseScissors();
-        computerPlay();
-        if (document.getElementById('imageP')) {
-            (document.getElementById('imageP')).remove();
-        }
-        const img = document.createElement('img');
-        img.className = 'scissors';
-        img.id = 'imageP';
-        img.src = 'images/scissors1.png';
-        const src = document.getElementById('playerWep');
-        src.appendChild(img);
-
-
-        playerChoice = 'scissors';
-        console.log(playerChoice);
-
-        if (computerChoice === 'rock') {
-            roundResult.innerHTML = `Comp wins. Rock beats Scissors.`
-            losses++
-            console.log(losses);
-            //compScore.innerHTML = `Computer Score: ${losses}`;
-            compWepLabel.innerHTML = `Computer Score: ${losses}`;
-        }
-        else if (computerChoice === 'scissors') {
-            roundResult.innerHTML = `Tie. Both chose Scissors`
-            draws++
-            console.log(draws);
-        }
-        else if (computerChoice === 'paper') {
-            roundResult.innerHTML = `Player wins! Scissors beats Paper.`
-            wins++
-            console.log(wins);
-            //playerScore.innerHTML = `Player Score: ${wins}`
-            pWepLabel.innerHTML = `Player Score: ${wins}`;
-        }
-
-
-        
-    })
-    
-    /*function chooseRock() {
-        
-    }
-    function choosePaper() {
-    }
-    function chooseScissors() {
-    }*/
-
     return playerChoice;
-    
 }
 
 
 // computer select function
-
-
-
 let computerChoice = '';
 
 function computerPlay() {
-    const choices = ['rock', 'paper', 'scissors'];
+    const choices = [CHOICE.ROCK, CHOICE.PAPER, CHOICE.SCISSORS];
     computerChoice = choices[Math.floor(Math.random() * choices.length)];
-    if (computerChoice === 'rock') {
+    if (computerChoice === CHOICE.ROCK) {
         if (document.getElementById('imageC')) {
             (document.getElementById('imageC')).remove();
         }
         const img = document.createElement('img');
-        img.className = 'rock';
+        img.className = CHOICE.ROCK;
         img.src = 'images/rock1.png';
         img.id = 'imageC';
         const src = document.getElementById('compWep');
         src.appendChild(img);
         console.log(computerChoice);
     }
-    else if (computerChoice === 'paper') {
+    else if (computerChoice === CHOICE.PAPER) {
         if (document.getElementById('imageC')) {
             (document.getElementById('imageC')).remove();
         }
         const img = document.createElement('img');
-        img.className = 'paper';
+        img.className = CHOICE.PAPER;
         img.id = 'imageC';
         img.src = 'images/paper1.png';
         const src = document.getElementById('compWep');
         src.appendChild(img);
         console.log(computerChoice);
     }
-    else if (computerChoice === 'scissors') {
+    else if (computerChoice === CHOICE.SCISSORS) {
         if (document.getElementById('imageC')) {
             (document.getElementById('imageC')).remove();
         }
         const img = document.createElement('img');
-        img.className = 'scissors';
+        img.className = CHOICE.SCISSORS;
         img.id = 'imageC';
         img.src = 'images/scissors1.png';
         const src = document.getElementById('compWep');
@@ -207,29 +199,6 @@ function computerPlay() {
 
     return computerChoice;
 }
-
-
-
-function newGame(playerSelection, computerSelection) {
-    playerSelection = playerPlay();
-    
-
-    if (rockChosen = true) {
-        roundResult.innerHTML = 'Rock';
-    }
-    else if (paperChosen = true) {
-        roundResult.innerHTML = 'Paper';
-    }
-    else if (scissorsChosen = true) {
-        roundResult.innerHTML = 'Scissors';
-    }
-
-    return playerSelection, computerSelection;
-}
-
-
-let playerSelection = '';
-let computerSelection = '';
 
 playerPlay();
 // create new game function
