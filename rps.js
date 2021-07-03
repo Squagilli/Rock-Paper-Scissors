@@ -28,6 +28,30 @@ const CHOICE_IMAGES = {
     [CHOICE.SCISSORS]: 'images/scissors1.png'
 }
 
+const GAME_MOVE = {
+    DRAW: 0,
+    WIN: 1,
+    LOSS: -1
+}
+
+const RULES_MAP = {
+    [CHOICE.ROCK]: {
+        [CHOICE.ROCK]: GAME_MOVE.DRAW,
+        [CHOICE.PAPER]: GAME_MOVE.LOSS,
+        [CHOICE.SCISSORS]: GAME_MOVE.WIN
+    },
+    [CHOICE.PAPER]: {
+        [CHOICE.ROCK]: GAME_MOVE.WIN,
+        [CHOICE.PAPER]: GAME_MOVE.DRAW,
+        [CHOICE.SCISSORS]: GAME_MOVE.LOSS
+    },
+    [CHOICE.SCISSORS]: {
+        [CHOICE.ROCK]: GAME_MOVE.LOSS,
+        [CHOICE.PAPER]: GAME_MOVE.WIN,
+        [CHOICE.SCISSORS]: GAME_MOVE.DRAW
+    }
+}
+
 rockSelect.addEventListener('click', onRockClick)
 paperSelect.addEventListener('click', onPaperClick)
 scissorSelect.addEventListener('click', onScissorsClick)
@@ -69,20 +93,21 @@ function onRockClick () {
     displayImage(getPlayerImage(), CHOICE.ROCK)
 
     playerChoice = CHOICE.ROCK;
-    console.log(playerChoice);
 
-    if (computerChoice === CHOICE.ROCK) {
+    const result = RULES_MAP[playerChoice][computerChoice]
+
+    if (result === GAME_MOVE.DRAW) {
         roundResult.innerHTML = `Tie. Both chose Rock.`
         draws++
         console.log(draws);
     }
-    else if (computerChoice === CHOICE.SCISSORS) {
+    else if (result === GAME_MOVE.WIN) {
         roundResult.innerHTML = `Player wins! Rock beats Scissors.`
         wins++
         console.log(wins);
         pWepLabel.innerHTML = `Player Score: ${wins}`;
     }
-    else if (computerChoice === CHOICE.PAPER) {
+    else if (result === GAME_MOVE.LOSS) {
         roundResult.innerHTML = `Comp wins. Paper beats Rock.`
         losses++
         console.log(losses);
@@ -98,19 +123,21 @@ function onPaperClick () {
     playerChoice = CHOICE.PAPER;
     console.log(playerChoice);
 
-    if (computerChoice === CHOICE.ROCK) {
+    const result = RULES_MAP[playerChoice][computerChoice]
+
+    if (result === GAME_MOVE.WIN) {
         roundResult.innerHTML = `Player wins! Paper beats Rock.`
         wins++
         console.log(wins);
         pWepLabel.innerHTML = `Player Score: ${wins}`;
     }
-    else if (computerChoice === CHOICE.SCISSORS) {
+    else if (result === GAME_MOVE.LOSS) {
         roundResult.innerHTML = `Comp wins. Scissors beats Paper.`
         losses++
         console.log(losses);
         compWepLabel.innerHTML = `Computer Score: ${losses}`;
     }
-    else if (computerChoice === CHOICE.PAPER) {
+    else if (result === GAME_MOVE.DRAW) {
         roundResult.innerHTML = `Tie. Both chose Paper.`
         draws++
         console.log(draws);
@@ -125,18 +152,20 @@ function onScissorsClick () {
     playerChoice = CHOICE.SCISSORS;
     console.log(playerChoice);
 
-    if (computerChoice === CHOICE.ROCK) {
+    const result = RULES_MAP[playerChoice][computerChoice]
+
+    if (result === GAME_MOVE.LOSS) {
         roundResult.innerHTML = `Comp wins. Rock beats Scissors.`
         losses++
         console.log(losses);
         compWepLabel.innerHTML = `Computer Score: ${losses}`;
     }
-    else if (computerChoice === CHOICE.SCISSORS) {
+    else if (result === GAME_MOVE.DRAW) {
         roundResult.innerHTML = `Tie. Both chose Scissors`
         draws++
         console.log(draws);
     }
-    else if (computerChoice === CHOICE.PAPER) {
+    else if (result === GAME_MOVE.WIN) {
         roundResult.innerHTML = `Player wins! Scissors beats Paper.`
         wins++
         console.log(wins);
