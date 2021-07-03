@@ -157,12 +157,20 @@ function printGameState() {
 }
 
 function computerPlay() {
-    const choices = [CHOICE.ROCK, CHOICE.PAPER, CHOICE.SCISSORS];
-    computerState.choice = choices[Math.floor(Math.random() * choices.length)];
+    computerState.choice = getRandomChoice()
 
     displayImage(getComputerImage(), computerState.choice)
 
     return computerState.choice;
 }
 
+function getRandomChoice() {
+    const choices = [CHOICE.ROCK, CHOICE.PAPER, CHOICE.SCISSORS];
+
+    return choices[getRandomInt(0, choices.length - 1)];
+}
+
+function getRandomInt(min , max) {
+    return Math.floor(Math.random() * (max - min) + min);
+}
 
