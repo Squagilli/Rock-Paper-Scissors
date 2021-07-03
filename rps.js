@@ -161,7 +161,6 @@ function displayLossResult(playerChoice, computerChoice) {
  */
 function displayDrawResult(choice) {
     roundResult.innerHTML = `Tie. Both chose ${choice}`
-    gameState.losses++
     updateGameState()
 }
 
