@@ -130,21 +130,30 @@ function displayRoundResult(result, playerChoice, computerChoice) {
 function displayWinResult(playerChoice, computerChoice) {
     roundResult.innerHTML = `Player wins! ${playerChoice} beats ${computerChoice}.`
     gameState.wins++
-    console.log(gameState.wins);
-    pWepLabel.innerHTML = `Player Score: ${gameState.wins}`;
+    updateGameState()
 }
 
 function displayLossResult(playerChoice, computerChoice) {
     roundResult.innerHTML = `Comp wins. ${computerChoice} beats ${playerChoice}.`
     gameState.losses++
-    console.log(gameState.losses);
-    compWepLabel.innerHTML = `Computer Score: ${gameState.losses}`;
+    updateGameState()
 }
 
 function displayDrawResult(choice) {
     roundResult.innerHTML = `Tie. Both chose ${choice}`
     gameState.losses++
-    console.log(gameState.losses);
+    updateGameState()
+}
+
+function updateGameState() {
+    pWepLabel.innerHTML = `Player Score: ${gameState.wins}`;
+    compWepLabel.innerHTML = `Computer Score: ${gameState.losses}`;
+    printGameState();
+}
+
+function printGameState() {
+    console.log(`Current state: wins: ${gameState.wins}, draws: ${gameState.draws}, losses: ${gameState.losses}`)
+    console.log(`Player choice: ${playerState.choice}, Computer choice: ${computerState.choice}`)
 }
 
 function computerPlay() {
@@ -152,8 +161,6 @@ function computerPlay() {
     computerState.choice = choices[Math.floor(Math.random() * choices.length)];
 
     displayImage(getComputerImage(), computerState.choice)
-
-    console.log(computerState.choice);
 
     return computerState.choice;
 }
