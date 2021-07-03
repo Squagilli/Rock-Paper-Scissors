@@ -22,22 +22,68 @@ const CHOICE = {
     SCISSORS: 'scissors'
 }
 
+const CHOICE_IMAGES = {
+    [CHOICE.ROCK]: 'images/rock1.png',
+    [CHOICE.PAPER]: 'images/paper1.png',
+    [CHOICE.SCISSORS]: 'images/scissors1.png'
+}
+
 rockSelect.addEventListener('click', onRockClick)
 paperSelect.addEventListener('click', onPaperClick)
 scissorSelect.addEventListener('click', onScissorsClick)
 
+function getPlayerImage() {
+    const element = document.getElementById('imageP')
+
+    if (element !== null) {
+        return element;
+    }
+
+    const newElement = document.createElement('img');
+    newElement.id = 'imageP';
+
+    return newElement;
+}
+
+function getComputerImage() {
+    const element = document.getElementById('imageC')
+
+    if (element !== null) {
+        return element;
+    }
+
+    const newElement = document.createElement('img');
+    newElement.id = 'imageC';
+
+    return newElement;
+}
+
+function displayPlayerImage(choice) {
+    const imgElement = getPlayerImage();
+
+    imgElement.className = choice;
+    imgElement.src = CHOICE_IMAGES[choice];
+
+    const imageContainer = document.getElementById('playerWep');
+
+    imageContainer.appendChild(imgElement);
+}
+
+function displayComputerImage(choice) {
+    const imgElement = getComputerImage();
+
+    imgElement.className = choice;
+    imgElement.src = CHOICE_IMAGES[choice];
+
+    const imageContainer = document.getElementById('compWep');
+
+    imageContainer.appendChild(imgElement);
+}
+
 function onRockClick () {
     computerPlay();
-    if (document.getElementById('imageP')) {
-        (document.getElementById('imageP')).remove();
-    }
-    const img = document.createElement('img');
-    img.className = CHOICE.ROCK;
-    img.id = 'imageP';
-    img.src = 'images/rock1.png';
-    const src = document.getElementById('playerWep');
-    src.appendChild(img);
 
+    displayPlayerImage(CHOICE.ROCK)
 
     playerChoice = CHOICE.ROCK;
     console.log(playerChoice);
@@ -51,30 +97,20 @@ function onRockClick () {
         roundResult.innerHTML = `Player wins! Rock beats Scissors.`
         wins++
         console.log(wins);
-        //playerScore.innerHTML = `Player Score: ${wins}`
         pWepLabel.innerHTML = `Player Score: ${wins}`;
     }
     else if (computerChoice === CHOICE.PAPER) {
         roundResult.innerHTML = `Comp wins. Paper beats Rock.`
         losses++
         console.log(losses);
-        //compScore.innerHTML = `Computer Score: ${losses}`
         compWepLabel.innerHTML = `Computer Score: ${losses}`;
     }
 }
 
 function onPaperClick () {
     computerPlay();
-    if (document.getElementById('imageP')) {
-        (document.getElementById('imageP')).remove();
-    }
-    const img = document.createElement('img');
-    img.className = CHOICE.PAPER;
-    img.id = 'imageP';
-    img.src = 'images/paper1.png';
-    const src = document.getElementById('playerWep');
-    src.appendChild(img);
 
+    displayPlayerImage(CHOICE.PAPER)
 
     playerChoice = CHOICE.PAPER;
     console.log(playerChoice);
@@ -83,14 +119,12 @@ function onPaperClick () {
         roundResult.innerHTML = `Player wins! Paper beats Rock.`
         wins++
         console.log(wins);
-        //playerScore.innerHTML = `Player Score: ${wins}`
         pWepLabel.innerHTML = `Player Score: ${wins}`;
     }
     else if (computerChoice === CHOICE.SCISSORS) {
         roundResult.innerHTML = `Comp wins. Scissors beats Paper.`
         losses++
         console.log(losses);
-        //compScore.innerHTML = `Computer Score: ${losses}`
         compWepLabel.innerHTML = `Computer Score: ${losses}`;
     }
     else if (computerChoice === CHOICE.PAPER) {
@@ -102,15 +136,8 @@ function onPaperClick () {
 
 function onScissorsClick () {
     computerPlay();
-    if (document.getElementById('imageP')) {
-        (document.getElementById('imageP')).remove();
-    }
-    const img = document.createElement('img');
-    img.className = CHOICE.SCISSORS;
-    img.id = 'imageP';
-    img.src = 'images/scissors1.png';
-    const src = document.getElementById('playerWep');
-    src.appendChild(img);
+
+    displayPlayerImage(CHOICE.SCISSORS)
 
     playerChoice = CHOICE.SCISSORS;
     console.log(playerChoice);
@@ -119,7 +146,6 @@ function onScissorsClick () {
         roundResult.innerHTML = `Comp wins. Rock beats Scissors.`
         losses++
         console.log(losses);
-        //compScore.innerHTML = `Computer Score: ${losses}`;
         compWepLabel.innerHTML = `Computer Score: ${losses}`;
     }
     else if (computerChoice === CHOICE.SCISSORS) {
@@ -131,7 +157,6 @@ function onScissorsClick () {
         roundResult.innerHTML = `Player wins! Scissors beats Paper.`
         wins++
         console.log(wins);
-        //playerScore.innerHTML = `Player Score: ${wins}`
         pWepLabel.innerHTML = `Player Score: ${wins}`;
     }
 }
@@ -142,42 +167,10 @@ let computerChoice = '';
 function computerPlay() {
     const choices = [CHOICE.ROCK, CHOICE.PAPER, CHOICE.SCISSORS];
     computerChoice = choices[Math.floor(Math.random() * choices.length)];
-    if (computerChoice === CHOICE.ROCK) {
-        if (document.getElementById('imageC')) {
-            (document.getElementById('imageC')).remove();
-        }
-        const img = document.createElement('img');
-        img.className = CHOICE.ROCK;
-        img.src = 'images/rock1.png';
-        img.id = 'imageC';
-        const src = document.getElementById('compWep');
-        src.appendChild(img);
-        console.log(computerChoice);
-    }
-    else if (computerChoice === CHOICE.PAPER) {
-        if (document.getElementById('imageC')) {
-            (document.getElementById('imageC')).remove();
-        }
-        const img = document.createElement('img');
-        img.className = CHOICE.PAPER;
-        img.id = 'imageC';
-        img.src = 'images/paper1.png';
-        const src = document.getElementById('compWep');
-        src.appendChild(img);
-        console.log(computerChoice);
-    }
-    else if (computerChoice === CHOICE.SCISSORS) {
-        if (document.getElementById('imageC')) {
-            (document.getElementById('imageC')).remove();
-        }
-        const img = document.createElement('img');
-        img.className = CHOICE.SCISSORS;
-        img.id = 'imageC';
-        img.src = 'images/scissors1.png';
-        const src = document.getElementById('compWep');
-        src.appendChild(img);
-        console.log(computerChoice);
-    }
+
+    displayComputerImage(computerChoice)
+
+    console.log(computerChoice);
 
     return computerChoice;
 }
