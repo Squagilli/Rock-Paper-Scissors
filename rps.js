@@ -58,16 +58,7 @@ function getComputerImage() {
     return getImageElement('imageC', container)
 }
 
-function displayPlayerImage(choice) {
-    const imgElement = getPlayerImage();
-
-    imgElement.className = choice;
-    imgElement.src = CHOICE_IMAGES[choice];
-}
-
-function displayComputerImage(choice) {
-    const imgElement = getComputerImage();
-
+function displayImage(imgElement, choice) {
     imgElement.className = choice;
     imgElement.src = CHOICE_IMAGES[choice];
 }
@@ -75,7 +66,7 @@ function displayComputerImage(choice) {
 function onRockClick () {
     computerPlay();
 
-    displayPlayerImage(CHOICE.ROCK)
+    displayImage(getPlayerImage(), CHOICE.ROCK)
 
     playerChoice = CHOICE.ROCK;
     console.log(playerChoice);
@@ -102,7 +93,7 @@ function onRockClick () {
 function onPaperClick () {
     computerPlay();
 
-    displayPlayerImage(CHOICE.PAPER)
+    displayImage(getPlayerImage(), CHOICE.PAPER)
 
     playerChoice = CHOICE.PAPER;
     console.log(playerChoice);
@@ -129,7 +120,7 @@ function onPaperClick () {
 function onScissorsClick () {
     computerPlay();
 
-    displayPlayerImage(CHOICE.SCISSORS)
+    displayImage(getPlayerImage(), CHOICE.SCISSORS)
 
     playerChoice = CHOICE.SCISSORS;
     console.log(playerChoice);
@@ -160,7 +151,7 @@ function computerPlay() {
     const choices = [CHOICE.ROCK, CHOICE.PAPER, CHOICE.SCISSORS];
     computerChoice = choices[Math.floor(Math.random() * choices.length)];
 
-    displayComputerImage(computerChoice)
+    displayImage(getComputerImage(), computerChoice)
 
     console.log(computerChoice);
 
