@@ -70,7 +70,7 @@ export const RULES_MAP = {
 export function getRandomChoice() {
     const choices = [CHOICE.ROCK, CHOICE.PAPER, CHOICE.SCISSORS];
 
-    return choices[getRandomInt(0, choices.length - 1)];
+    return pickRandom(choices);
 }
 
 /**
@@ -82,4 +82,13 @@ export function getRandomChoice() {
  */
 export function getRandomInt(min , max) {
     return Math.floor(Math.random() * (max - min) + min);
+}
+
+/**
+ * Picks random element from array
+ *
+ * @param array
+ */
+export function pickRandom(array) {
+    return array[getRandomInt(0, array.length - 1)]
 }
