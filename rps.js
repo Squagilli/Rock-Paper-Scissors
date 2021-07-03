@@ -32,7 +32,7 @@ rockSelect.addEventListener('click', onRockClick)
 paperSelect.addEventListener('click', onPaperClick)
 scissorSelect.addEventListener('click', onScissorsClick)
 
-function getImageElement(id) {
+function getImageElement(id, container) {
     const element = document.getElementById(id)
 
     if (element !== null) {
@@ -42,15 +42,20 @@ function getImageElement(id) {
     const newElement = document.createElement('img');
     newElement.id = id;
 
+    // Append only if it didnt exist before
+    container.appendChild(newElement)
+
     return newElement;
 }
 
 function getPlayerImage() {
-    return getImageElement('imageP')
+    const container = document.getElementById('playerWep')
+    return getImageElement('imageP', container)
 }
 
 function getComputerImage() {
-    return getImageElement('imageC')
+    const container = document.getElementById('compWep')
+    return getImageElement('imageC', container)
 }
 
 function displayPlayerImage(choice) {
@@ -58,10 +63,6 @@ function displayPlayerImage(choice) {
 
     imgElement.className = choice;
     imgElement.src = CHOICE_IMAGES[choice];
-
-    const imageContainer = document.getElementById('playerWep');
-
-    imageContainer.appendChild(imgElement);
 }
 
 function displayComputerImage(choice) {
@@ -69,10 +70,6 @@ function displayComputerImage(choice) {
 
     imgElement.className = choice;
     imgElement.src = CHOICE_IMAGES[choice];
-
-    const imageContainer = document.getElementById('compWep');
-
-    imageContainer.appendChild(imgElement);
 }
 
 function onRockClick () {
