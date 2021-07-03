@@ -1,4 +1,6 @@
 // buttons to be manipulated
+import {CHOICE, GAME_MOVE, RULES_MAP, CHOICE_IMAGES, getRandomChoice} from "./rock-paper-scissors-lib.js";
+
 const rockSelect = document.getElementById('rockPicture');
 const paperSelect = document.getElementById('paperPicture');
 const scissorSelect = document.getElementById('scissorPicture');
@@ -7,43 +9,6 @@ const scissorSelect = document.getElementById('scissorPicture');
 const pWepLabel = document.querySelector('.playerWeaponLabel');
 const compWepLabel = document.querySelector('.compWeaponLabel');
 const roundResult = document.getElementById('roundResult');
-
-const CHOICE = {
-    DEFAULT: 'default',
-    ROCK: 'rock',
-    PAPER: 'paper',
-    SCISSORS: 'scissors'
-}
-
-const CHOICE_IMAGES = {
-    [CHOICE.ROCK]: 'images/rock1.png',
-    [CHOICE.PAPER]: 'images/paper1.png',
-    [CHOICE.SCISSORS]: 'images/scissors1.png'
-}
-
-const GAME_MOVE = {
-    DRAW: 0,
-    WIN: 1,
-    LOSS: -1
-}
-
-const RULES_MAP = {
-    [CHOICE.ROCK]: {
-        [CHOICE.ROCK]: GAME_MOVE.DRAW,
-        [CHOICE.PAPER]: GAME_MOVE.LOSS,
-        [CHOICE.SCISSORS]: GAME_MOVE.WIN
-    },
-    [CHOICE.PAPER]: {
-        [CHOICE.ROCK]: GAME_MOVE.WIN,
-        [CHOICE.PAPER]: GAME_MOVE.DRAW,
-        [CHOICE.SCISSORS]: GAME_MOVE.LOSS
-    },
-    [CHOICE.SCISSORS]: {
-        [CHOICE.ROCK]: GAME_MOVE.LOSS,
-        [CHOICE.PAPER]: GAME_MOVE.WIN,
-        [CHOICE.SCISSORS]: GAME_MOVE.DRAW
-    }
-}
 
 const playerState = {
     choice: CHOICE.DEFAULT
@@ -63,6 +28,14 @@ rockSelect.addEventListener('click', onPlayerChoiceClick)
 paperSelect.addEventListener('click', onPlayerChoiceClick)
 scissorSelect.addEventListener('click', onPlayerChoiceClick)
 
+/**
+ * Get image element
+ * If it does not exist yet, create it
+ *
+ * @param id
+ * @param container
+ * @return {HTMLElement}
+ */
 function getImageElement(id, container) {
     const element = document.getElementById(id)
 
@@ -79,21 +52,43 @@ function getImageElement(id, container) {
     return newElement;
 }
 
+/**
+ * Get player image element
+ *
+ * @return {HTMLElement}
+ */
 function getPlayerImage() {
     const container = document.getElementById('playerWep')
     return getImageElement('imageP', container)
 }
 
+/**
+ * Get computer image element
+ *
+ * @return {HTMLElement}
+ */
 function getComputerImage() {
     const container = document.getElementById('compWep')
     return getImageElement('imageC', container)
 }
 
+/**
+ * Display given choice in image element
+ *
+ * @param imgElement
+ * @param choice
+ */
 function displayImage(imgElement, choice) {
     imgElement.className = choice;
     imgElement.src = CHOICE_IMAGES[choice];
 }
 
+/**
+ * Event handler when player clicks on one of
+ * the choices
+ *
+ * @param event
+ */
 function onPlayerChoiceClick(event) {
     const newChoice = event.target.getAttribute('data-choice')
 
@@ -112,6 +107,14 @@ function onPlayerChoiceClick(event) {
     )
 }
 
+/**
+ * Displays round result based on
+ * result of the move and choices of players
+ *
+ * @param result
+ * @param playerChoice
+ * @param computerChoice
+ */
 function displayRoundResult(result, playerChoice, computerChoice) {
 
     if (result === GAME_MOVE.WIN) {
@@ -127,35 +130,63 @@ function displayRoundResult(result, playerChoice, computerChoice) {
     }
 }
 
+/**
+ * Displays win result and updates game state
+ *
+ * @param playerChoice
+ * @param computerChoice
+ */
 function displayWinResult(playerChoice, computerChoice) {
     roundResult.innerHTML = `Player wins! ${playerChoice} beats ${computerChoice}.`
     gameState.wins++
     updateGameState()
 }
 
+/**
+ * Displays loss result and updates game state
+ *
+ * @param playerChoice
+ * @param computerChoice
+ */
 function displayLossResult(playerChoice, computerChoice) {
     roundResult.innerHTML = `Comp wins. ${computerChoice} beats ${playerChoice}.`
     gameState.losses++
     updateGameState()
 }
 
+/**
+ * Displays draw result and updates game state
+ *
+ * @param choice
+ */
 function displayDrawResult(choice) {
     roundResult.innerHTML = `Tie. Both chose ${choice}`
     gameState.losses++
     updateGameState()
 }
 
+/**
+ * Synchronises state displayed on screen with gameState
+ */
 function updateGameState() {
     pWepLabel.innerHTML = `Player Score: ${gameState.wins}`;
     compWepLabel.innerHTML = `Computer Score: ${gameState.losses}`;
     printGameState();
 }
 
+/**
+ * Just prints game state to console
+ */
 function printGameState() {
     console.log(`Current state: wins: ${gameState.wins}, draws: ${gameState.draws}, losses: ${gameState.losses}`)
     console.log(`Player choice: ${playerState.choice}, Computer choice: ${computerState.choice}`)
 }
 
+/**
+ * Computer move
+ *
+ * @return {string}
+ */
 function computerPlay() {
     computerState.choice = getRandomChoice()
 
@@ -163,14 +194,3 @@ function computerPlay() {
 
     return computerState.choice;
 }
-
-function getRandomChoice() {
-    const choices = [CHOICE.ROCK, CHOICE.PAPER, CHOICE.SCISSORS];
-
-    return choices[getRandomInt(0, choices.length - 1)];
-}
-
-function getRandomInt(min , max) {
-    return Math.floor(Math.random() * (max - min) + min);
-}
-
